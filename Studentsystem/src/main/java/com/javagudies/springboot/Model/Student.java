@@ -4,16 +4,24 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Slf4j
+
+//UsingNmaeQuerryAnnotation-Impplemeting custom Query which gives details based on given condition
+@NamedQuery(name = "Student.getByNameorAdress", query = " Select s from Student s where s.name=:name or s.adress=:adress")
+
 public class Student {
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -25,7 +33,7 @@ public class Student {
 	}
 	public Student( String name, String adress) {
 		super();
-		
+
 		this.name = name;
 		this.adress = adress;
 	}
@@ -51,8 +59,8 @@ public class Student {
 	public void setAdress(String adress) {
 		this.adress = adress;
 	}
-	
 
-	
+
+
 
 }

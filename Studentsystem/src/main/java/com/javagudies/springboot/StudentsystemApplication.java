@@ -11,9 +11,9 @@ public class StudentsystemApplication  {
 	public static void main(String[] args) {
 		SpringApplication.run(StudentsystemApplication.class, args);
 	}
-	
-	
+
+
 	}
-	
+
 
 
